@@ -1,0 +1,6 @@
+<h2>Logged in!</h2>
+
+<div>
+  <p>User Profile: <%= JSON.pretty_generate(@user) %></p>
+
+<%= button_to 'Logout', 'auth/logout', method: :get, data: {turbo: false} %>
