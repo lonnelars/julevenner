@@ -1,4 +1,4 @@
-module Secured 
+module Secured
   extend ActiveSupport::Concern
 
   included do
@@ -6,6 +6,6 @@ module Secured
   end
 
   def logged_in_using_omniauth?
-    redirect_to '/' unless session[:userinfo].present?
+    redirect_to "/" unless session[:userinfo].present?
   end
 end
