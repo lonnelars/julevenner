@@ -7,7 +7,9 @@ class Auth0Controller < ApplicationController
     session[:userinfo] = auth_info["extra"]["raw_info"]
 
     # Redirect to the URL you want after successful auth
-    redirect_to "/user"
+    email = session[:userinfo].name
+    user = User.find_by(email: email)
+    redirect_to "/groups/#{user.group_id}"
   end
 
   def failure

@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
-  
-  get '/user' => 'user#show'
+  root "welcome#index"
 
-  get '/auth/auth0/callback' => 'auth0#callback'
-  get '/auth/failure' => 'auth0#failure'
-  get '/auth/logout' => 'auth0#logout'
+  get "/user" => "user#show"
+
+  get "/groups/:id" => "groups#show"
+
+  get "/auth/auth0/callback" => "auth0#callback"
+  get "/auth/failure" => "auth0#failure"
+  get "/auth/logout" => "auth0#logout"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
