@@ -1,6 +1,35 @@
-<p>
-Du er medlem av <%= @group.name %>
-</p>
-<p>Din julevenn er <%= @julevenn.name %></p>
+<article class="welcome">
+  <h1><%= @group.name %></h1>
 
-<%= button_to 'Logout', '/auth/logout', method: :get, data: {turbo: false} %>
+  <div id="julevenn">Din julevenn er 🎅<%= @julevenn.name %>🎅</div>
+
+  <div class="buttons">
+    <button id="showJulevenn" onclick="showJulevenn()">Vis meg min julevenn!</button>
+    <%= button_to 'Logg ut', '/auth/logout', class: "secondary", method: :get, data: {turbo: false} %>
+  </div>
+</article>
+
+<script>
+  function showJulevenn() {
+    confetti({particleCount: 100, spread: 70})
+    const julevenn = document.getElementById("julevenn");
+    julevenn.classList.add("visible")
+  }
+</script>
+
+<style>
+  #julevenn {
+    visibility: hidden;
+    color: white;
+    font-size: 4rem;
+    margin: 6rem;
+  }
+
+  #julevenn.visible {
+    visibility: visible;
+  }
+
+  .buttons {
+    display: flex;
+  }
+</style>
