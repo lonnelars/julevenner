@@ -1,7 +1,7 @@
 <article class="welcome">
   <h1><%= @group.name %></h1>
 
-  <div id="julevenn">Din julevenn er 🎅<%= @julevenn.name %>🎅</div>
+  <div id="julevenn">Din julevenn er 🎅&nbsp;<%= @julevenn.name %>&nbsp;🎅</div>
 
   <div class="buttons">
     <button id="showJulevenn" onclick="showJulevenn()">Vis meg min julevenn!</button>
@@ -21,8 +21,9 @@
   #julevenn {
     visibility: hidden;
     color: white;
-    font-size: 4rem;
-    margin: 6rem;
+    font-size: min(10vw, 4rem);
+    margin: 6rem 0;
+    text-align: center;
   }
 
   #julevenn.visible {
