@@ -19,3 +19,18 @@ group.users.create!([ { name: "Lars", email: "lonnelars@gmail.com" },
   { name: "Blake", email: "blake.wergeland@gmail.com" },
   { name: "Farmor", email: "gslonne@icloud.com" },
   { name: "Farfar", email: "ojlonne@icloud.com" } ])
+
+def find_seed(group)
+  seed = Random.new_seed
+  users = group.users.all
+    candidate = users.zip(users.shuffle(random: Random.new(seed)))
+  if candidate.all? { |pair| pair[0] != pair[1] } then
+    seed
+  else
+    find_seed group
+  end
+end
+
+seed = find_seed group
+group.seed = seed
+group.save!
