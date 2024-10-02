@@ -31,7 +31,7 @@ h1 {
 
 .welcome {
   height: 100%;
-  margin: 0;
+  margin: 0 0 env(safe-area-inset-bottom) 0;
   padding: 0;
   background: radial-gradient(#b83728 0, #b83728 20%, #320f0b 100%);
   display: flex;
